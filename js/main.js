@@ -167,6 +167,15 @@
     function initContactForm() {
         if (!contactForm) return;
 
+        const formEndpoint = contactForm.dataset.endpoint;
+        if (!formEndpoint) {
+            console.warn('Nenhum endpoint configurado para o formulário de contato.');
+            return;
+        }
+
+        const successMessage = contactForm.dataset.successMessage || 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+        const errorMessage = contactForm.dataset.errorMessage || 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.';
+
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -193,17 +202,15 @@
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
 
-            // Simulate form submission (replace with actual API call)
             try {
-                // In production, replace this with your actual form submission logic
-                await simulateFormSubmission(data);
+                await submitContactForm(formEndpoint, data);
 
                 // Show success message
-                showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                showNotification(successMessage, 'success');
                 contactForm.reset();
             } catch (error) {
-                showNotification('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.', 'error');
-                console.error('Form submission error:', error);
+                showNotification(errorMessage, 'error');
+                console.error('Erro no envio do formulário:', error);
             } finally {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
@@ -211,12 +218,39 @@
         });
     }
 
-    // Simulate form submission (replace with actual API call)
-    function simulateFormSubmission(data) {
-        return new Promise((resolve) => {
-            console.log('Form data:', data);
-            setTimeout(resolve, 1500);
+    // Submit contact form data to configured endpoint
+    async function submitContactForm(endpoint, formData) {
+        const payload = {
+            ...formData,
+            _subject: formData._subject || 'Nova mensagem via site ZAPSUS',
+            _template: formData._template || 'table',
+            page: window.location.href,
+            submittedAt: new Date().toISOString()
+        };
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
         });
+
+        if (!response.ok) {
+            let errorMessage = 'Erro ao enviar formulário';
+            try {
+                const errorData = await response.json();
+                if (errorData && errorData.message) {
+                    errorMessage = errorData.message;
+                }
+            } catch (err) {
+                // Ignora erros de parsing e mantém mensagem padrão
+            }
+            throw new Error(errorMessage);
+        }
+
+        return response.json().catch(() => ({}));
     }
 
     // Show notification

@@ -152,6 +152,19 @@ git pull origin main
 
 ---
 
+## dY", Formulario de Contato Funcional  
+ 
+O formulario da secao **"Entre em Contato"** usa o [FormSubmit](https://formsubmit.co) para entregar cada mensagem diretamente no email **contato@zapsus.ia.br**.  
+ 
+1. **Primeiro envio:** o FormSubmit mandara um email de confirmacao; clique em *Confirm submission* para liberar as proximas mensagens.  
+2. **Mensagens personalizadas:** ajuste os atributos `data-success-message` e `data-error-message` do `<form id="contact-form">` em `index.html` para mudar os textos exibidos ao usuario.  
+3. **Trocar o destino:** substitua o valor dos atributos `action` e `data-endpoint` do mesmo `<form>` pelo novo email (use sempre o formato `https://formsubmit.co/ajax/SEU-EMAIL` para manter a experiencia AJAX).  
+4. **Testar localmente:** abra o `index.html` no navegador, envie uma mensagem e acompanhe o request no painel *Network* do DevTools para confirmar que o status HTTP voltou como `200`.  
+ 
+Se preferir outro provedor (EmailJS, Netlify Forms, backend proprio etc.), basta atualizar o `data-endpoint` e a funcao `submitContactForm` em `js/main.js`.  
+ 
+---
+ 
 ## 📄 Licença  
 
 © 2025 **ZAPSUS**. Todos os direitos reservados.  

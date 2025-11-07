@@ -661,7 +661,15 @@
                     </div>
                 </div>
                 
-                <form class="contact__form" id="contact-form">
+                <form class="contact__form" id="contact-form"
+                    action="https://formsubmit.co/contato@zapsus.ia.br"
+                    method="POST"
+                    data-endpoint="https://formsubmit.co/ajax/contato@zapsus.ia.br"
+                    data-success-message="Mensagem enviada com sucesso! Entraremos em contato em breve."
+                    data-error-message="Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.">
+                    <input type="hidden" name="_subject" value="Nova mensagem via site ZAPSUS">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none;">
                     <div class="form__group">
                         <label for="name" class="form__label">Nome</label>
                         <input type="text" id="name" name="name" class="form__input" required>
