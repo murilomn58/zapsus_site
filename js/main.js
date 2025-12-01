@@ -443,6 +443,47 @@
     }
 
     // ============================================
+    // PITCH VIDEO FALLBACK
+    // ============================================
+    function initPitchVideoFallback() {
+        const frame = document.getElementById('pitch-video-frame');
+        const video = document.getElementById('pitch-video-player');
+        const fallback = document.getElementById('pitch-video-fallback');
+
+        if (!frame || !video || !fallback) return;
+
+        const hideFallback = () => {
+            frame.classList.add('has-video');
+            fallback.setAttribute('hidden', 'hidden');
+        };
+
+        const showFallback = () => {
+            frame.classList.remove('has-video');
+            fallback.removeAttribute('hidden');
+        };
+
+        video.addEventListener('loadeddata', hideFallback);
+        video.addEventListener('error', showFallback);
+
+        if (video.readyState > 0) {
+            hideFallback();
+            return;
+        }
+
+        const hasSource = Boolean(video.querySelector('source'));
+        if (!hasSource) {
+            showFallback();
+        } else {
+            setTimeout(() => {
+                if (typeof HTMLMediaElement !== 'undefined' &&
+                    video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+                    showFallback();
+                }
+            }, 800);
+        }
+    }
+
+    // ============================================
     // INITIALIZE ON DOM READY
     // ============================================
     function init() {
@@ -452,6 +493,7 @@
         initContactForm();
         initScrollAnimations();
         initLazyLoading();
+        initPitchVideoFallback();
 
         // Set up scroll event listener
         window.addEventListener('scroll', throttledScroll);

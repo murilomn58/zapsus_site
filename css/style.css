@@ -1674,6 +1674,348 @@ a.contact__value:hover {
 }
 
 /* ============================================
+   PITCH PAGE
+   ============================================ */
+.pitch-page {
+    background: linear-gradient(180deg, var(--color-gray-50) 0%, #e6f4ff 50%, var(--color-gray-50) 100%);
+}
+
+.pitch-hero {
+    position: relative;
+    overflow: hidden;
+    color: var(--color-white);
+    background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.25), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.3), transparent 30%),
+                linear-gradient(135deg, #0b1f3a 0%, #0b3458 50%, #0a4c78 100%);
+}
+
+.pitch-hero::before,
+.pitch-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+}
+
+.pitch-hero::before {
+    width: 320px;
+    height: 320px;
+    background: #38bdf8;
+    top: -80px;
+    left: -40px;
+}
+
+.pitch-hero::after {
+    width: 260px;
+    height: 260px;
+    background: #0ea5e9;
+    bottom: -120px;
+    right: -80px;
+}
+
+.pitch-hero__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: center;
+    gap: var(--spacing-2xl);
+}
+
+.pitch-hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 720px;
+}
+
+.pitch-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pitch-hero__title {
+    font-size: var(--font-size-5xl);
+    line-height: var(--line-height-tight);
+    font-weight: var(--font-weight-extrabold);
+}
+
+.pitch-hero__subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.pitch-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.pitch-hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.pitch-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-white);
+    font-weight: var(--font-weight-medium);
+}
+
+.pitch-hero__card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-xl);
+    backdrop-filter: blur(10px);
+}
+
+.pitch-hero__card-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.pitch-hero__list {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.pitch-hero__list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pitch-hero__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.16);
+}
+
+.pitch-hero__meta {
+    margin-top: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: var(--font-weight-semibold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pitch-video {
+    background: var(--color-white);
+}
+
+.pitch-video__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 1fr);
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.pitch-video__player,
+.pitch-video__details {
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.pitch-video__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.pitch-video__label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-800);
+}
+
+.pitch-video__duration {
+    color: var(--color-gray-600);
+    font-size: var(--font-size-sm);
+}
+
+.pitch-video__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: radial-gradient(circle at 20% 20%, rgba(2, 132, 199, 0.1), transparent 55%),
+                radial-gradient(circle at 80% 10%, rgba(10, 76, 120, 0.12), transparent 45%),
+                var(--color-gray-900);
+    border: 1px solid var(--color-gray-200);
+    min-height: 360px;
+    box-shadow: var(--shadow-2xl);
+}
+
+.pitch-video__frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-gray-900);
+}
+
+.pitch-video__fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--color-white);
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.92), rgba(10, 76, 120, 0.9));
+}
+
+.pitch-video__frame.has-video .pitch-video__fallback {
+    display: none;
+}
+
+.pitch-video__fallback h4 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pitch-video__fallback p {
+    margin-bottom: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.pitch-video__fallback code {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-white);
+}
+
+.pitch-video__note {
+    margin-top: var(--spacing-md);
+    color: var(--color-gray-700);
+    font-size: var(--font-size-sm);
+}
+
+.pitch-video__details h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gray-900);
+}
+
+.pitch-details__list {
+    margin: var(--spacing-md) 0;
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.pitch-details__list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-gray-800);
+}
+
+.pitch-details__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 0 8px rgba(2, 132, 199, 0.14);
+}
+
+.pitch-details__list strong {
+    color: var(--color-gray-900);
+}
+
+.pitch-video__cta {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+.pitch-cta {
+    background: linear-gradient(135deg, #0b3458 0%, #0284c7 100%);
+    color: var(--color-white);
+}
+
+.pitch-cta__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.pitch-cta h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xs);
+}
+
+.pitch-cta p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.pitch-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+    .pitch-video__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pitch-hero__title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .pitch-cta__content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {
