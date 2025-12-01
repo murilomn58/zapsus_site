@@ -37,3 +37,6 @@ build/
 
 # Cache
 .cache/
+
+# Local heavy assets not meant for git history
+videos/pitchpesado.mp4

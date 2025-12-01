@@ -35,8 +35,7 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="../index.html#home" class="nav__link">Início</a></li>
-                    <li class="nav__item"><a href="#pitch" class="nav__link">Pitch</a></li>
-                    <li class="nav__item"><a href="#pitch-video" class="nav__link">Vídeo</a></li>
+                    <li class="nav__item"><a href="#pitch-video" class="nav__link">Pitch</a></li>
                     <li class="nav__item"><a href="../index.html#contact" class="nav__link nav__cta">Contato</a></li>
                 </ul>
             </div>
@@ -48,94 +47,20 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero -->
-        <section class="pitch-hero section" id="pitch">
-            <div class="pitch-hero__container container">
-                <div class="pitch-hero__content">
-                    <span class="pitch-hero__eyebrow">Pitch ZAPSUS</span>
-                    <h1 class="pitch-hero__title">
-                        Nosso pitch em vídeo, pronto para compartilhar
-                    </h1>
-                    <p class="pitch-hero__subtitle">
-                        Veja em poucos minutos como a Susy usa IA para otimizar filas de cirurgias eletivas, acompanhar pacientes e integrar dados críticos do SUS.
-                    </p>
-                    <div class="pitch-hero__actions">
-                        <a href="#pitch-video" class="btn btn-primary">Assistir agora</a>
-                        <a href="../index.html#contact" class="btn btn-secondary">Falar com a equipe</a>
-                    </div>
-                    <div class="pitch-hero__chips">
-                        <span class="pitch-chip">Formato MP4</span>
-                        <span class="pitch-chip">Duração curta</span>
-                        <span class="pitch-chip">IA para o SUS</span>
-                    </div>
-                </div>
-
-                <div class="pitch-hero__card">
-                    <h3 class="pitch-hero__card-title">O que você vai ver</h3>
-                    <ul class="pitch-hero__list">
-                        <li>Desafio das filas de cirurgia eletiva e impactos.</li>
-                        <li>Como a Susy monitora pacientes e prioriza casos.</li>
-                        <li>Integrações com DataSUS, BigQuery e sistemas hospitalares.</li>
-                    </ul>
-                    <div class="pitch-hero__meta">
-                        Pitch pronto para gestores, hospitais e investidores.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pitch Video -->
-        <section class="pitch-video section" id="pitch-video">
-            <div class="container pitch-video__grid">
-                <div class="pitch-video__player">
-                    <div class="pitch-video__header">
-                        <div class="pitch-video__label">Pitch em vídeo (MP4)</div>
-                        <span class="pitch-video__duration">~3-5 minutos</span>
-                    </div>
-                    <div class="pitch-video__frame" id="pitch-video-frame">
-                        <video id="pitch-video-player" controls preload="metadata" aria-label="Pitch institucional da ZAPSUS">
-                            <source src="../videos/pitch.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                        <div class="pitch-video__fallback" id="pitch-video-fallback">
-                            <div class="pitch-video__fallback-content">
-                                <h4>O vídeo aparecerá aqui</h4>
-                                <p>Salve o arquivo MP4 em <code>videos/pitch.mp4</code> dentro deste repositório.</p>
-                                <p>Após o upload, recarregue a página e o player exibirá o pitch.</p>
-                            </div>
+        <section class="pitch-simple section" id="pitch-video">
+            <div class="pitch-simple__wrapper">
+                <h1 class="pitch-simple__title">Pitch Zapsus INTO: Edital FAPERJ</h1>
+                <div class="pitch-video__frame" id="pitch-video-frame">
+                    <video id="pitch-video-player" controls preload="metadata" aria-label="Pitch institucional da ZAPSUS">
+                        <source src="../videos/pitch.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <div class="pitch-video__fallback" id="pitch-video-fallback">
+                        <div class="pitch-video__fallback-content">
+                            <h4>O vídeo aparecerá aqui</h4>
+                            <p>Coloque o arquivo em <code>videos/pitch.mp4</code> para exibir o pitch.</p>
                         </div>
                     </div>
-                    <p class="pitch-video__note">
-                        Mantivemos o player pronto para o arquivo local. Basta adicionar o MP4 indicado para funcionar no ambiente de produção.
-                    </p>
-                </div>
-
-                <div class="pitch-video__details" id="pitch-destaques">
-                    <h3>Destaques do pitch</h3>
-                    <ul class="pitch-details__list">
-                        <li><strong>Problema:</strong> filas de cirurgias eletivas com pouca previsibilidade e comunicação limitada.</li>
-                        <li><strong>Solução:</strong> assistente Susy com IA para acompanhar pacientes e priorizar casos críticos.</li>
-                        <li><strong>Integrações:</strong> DataSUS, BigQuery e sistemas hospitalares para dados auditáveis.</li>
-                        <li><strong>Impacto:</strong> redução de tempo de espera, economia para o sistema e melhor experiência do paciente.</li>
-                    </ul>
-                    <div class="pitch-video__cta">
-                        <a class="btn btn-primary" href="../index.html#contact">Marcar conversa</a>
-                        <a class="btn btn-secondary" href="../index.html#roadmap">Ver roadmap</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="pitch-cta section" id="pitch-cta">
-            <div class="container pitch-cta__content">
-                <div>
-                    <h3>Quer receber o pitch por e-mail?</h3>
-                    <p>Enviamos o vídeo e materiais complementares diretamente para você ou sua equipe.</p>
-                </div>
-                <div class="pitch-cta__actions">
-                    <a class="btn btn-primary" href="../index.html#contact">Fale com a equipe</a>
-                    <a class="btn btn-secondary" href="mailto:contato@zapsus.ia.br">contato@zapsus.ia.br</a>
                 </div>
             </div>
         </section>
